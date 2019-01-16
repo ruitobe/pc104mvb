@@ -1,0 +1,10 @@
+..\obj\demo11.o: ..\DEMON\src\demo11.c
+..\obj\demo11.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\demo11.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\ctype.h
+..\obj\demo11.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\demo11.o: ..\DEMON\inc\config.h
+..\obj\demo11.o: ..\DEMON\inc\host_dep.h
+..\obj\demo11.o: ..\DEMON\inc\dpr_dep.h
+..\obj\demo11.o: ..\DEMON\inc\cl1_ret.h
+..\obj\demo11.o: ..\DEMON\inc\cl1_1.h
+..\obj\demo11.o: ..\DEMON\inc\demon.h

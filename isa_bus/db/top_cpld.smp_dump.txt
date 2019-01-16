@@ -1,0 +1,7 @@
+
+State Machine - |top_cpld|sm
+Name sm.11 sm.10 sm.01 sm.00 
+sm.00 0 0 0 0 
+sm.01 0 0 1 1 
+sm.10 0 1 0 1 
+sm.11 1 0 0 1 

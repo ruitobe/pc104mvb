@@ -1,0 +1,15 @@
+D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld.vt {1 {vlog -work work -vopt D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld.vt
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module top_cpld_vlg_tst
+
+Top level modules:
+	top_cpld_vlg_tst
+
+} {} {}} D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v {1 {vlog -work work -vopt D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v
+Model Technology ModelSim SE vlog 10.1a Compiler 2012.02 Feb 22 2012
+-- Compiling module top_cpld
+
+Top level modules:
+	top_cpld
+
+} {} {}}

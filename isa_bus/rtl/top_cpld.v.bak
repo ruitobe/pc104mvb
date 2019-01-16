@@ -1,0 +1,43 @@
+//file name:       top_cpld.v
+//author:           BigTree
+//date:             2017.7.23
+//function:        top file of project
+//log:              led light
+
+module top_cpld(
+    //global signal
+    input clk,  //50MHz
+    input rst_n,//low active
+    
+    //led
+    output [2:0] led //high active
+);
+
+//寄存器定义
+reg [31:0] timer;
+reg [2:0] led_r;
+
+assign led = led_r;
+
+always @(posedge clk or negedge rst_n)
+    if (~rst_n)
+        timer <= 0; //计数器清零
+    else if (timer == 32'd149_999_999) //4 秒计数(50M*3-1=149_999_999)
+        timer <= 0; //计数器计到3秒，计数器清零
+    else
+        timer <= timer + 1'b1; //计数器加 1
+
+//LED控制
+always @(posedge clk or negedge rst_n)
+    if (~rst_n)
+        led_r <= 3'b000; //四个 LED 灯灭
+    else if (timer == 32'd49_999_999) //计数器计到 1 秒，
+        led_r <= 3'b001; //LED1 点亮
+    else if (timer == 32'd99_999_999) //计数器计到 2 秒，
+        led_r <= 3'b010; //LED2 点亮
+    else if (timer == 32'd149_999_999) //计数器计到 3 秒，
+        led_r <= 3'b100; //LED3 点亮
+    else
+        led_r <= led_r;
+    
+endmodule

@@ -1,0 +1,24 @@
+library verilog;
+use verilog.vl_types.all;
+entity top_cpld is
+    port(
+        clk             : in     vl_logic;
+        rst_n           : in     vl_logic;
+        isa_data        : inout  vl_logic_vector(15 downto 0);
+        isa_addr        : out    vl_logic_vector(15 downto 0);
+        isa_la_addr     : out    vl_logic_vector(6 downto 0);
+        mem_w           : out    vl_logic;
+        mem_r           : out    vl_logic;
+        bale            : out    vl_logic;
+        io_chrdy        : in     vl_logic;
+        oe              : out    vl_logic;
+        dir             : out    vl_logic;
+        addr_sel        : in     vl_logic;
+        arm_addr        : in     vl_logic_vector(11 downto 0);
+        arm_data        : inout  vl_logic_vector(15 downto 0);
+        arm_cs          : in     vl_logic;
+        arm_wait        : out    vl_logic;
+        arm_rd          : in     vl_logic;
+        arm_wr          : in     vl_logic
+    );
+end top_cpld;
