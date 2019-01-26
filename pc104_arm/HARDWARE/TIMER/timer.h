@@ -13,6 +13,9 @@
 //Copyright(C) 广州市星翼电子科技有限公司 2014-2024
 //All rights reserved									  
 ////////////////////////////////////////////////////////////////////////////////// 	
-
-void TIM3_Int_Init(u16 arr,u16 psc);
+//uint64_t uwTick;
+void TIM3_Int_Init(void);
+void TIM4_Int_Init(void);
+uint32_t millis1(void);
+uint32_t millis2(void);
 #endif

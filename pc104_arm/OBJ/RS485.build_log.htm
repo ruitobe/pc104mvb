@@ -21,34 +21,40 @@ Target DLL:      Segger\JL2CM3.dll V2.99.13.0
 Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
-D:\Rui\104\arm\20190108\USER\RS485.uvprojx
-Project File Date:  01/08/2019
+D:\Rui\104\20190124\USER\RS485.uvprojx
+Project File Date:  01/25/2019
 
 <h2>Output:</h2>
 Rebuild target 'RS485'
 compiling main.c...
-main.c(39): warning:  #177-D: variable "i" was declared but never referenced
+main.c(120): warning:  #111-D: statement is unreachable
+        MVBCStop(0);            
+main.c(33): warning:  #177-D: variable "i" was declared but never referenced
         uint32_t i = 0;
-main.c(41): warning:  #177-D: variable "rs485buf" was declared but never referenced
+main.c(35): warning:  #177-D: variable "rs485buf" was declared but never referenced
         u8 rs485buf[5]; 
-main.c: 2 warnings, 0 errors
+main.c: 3 warnings, 0 errors
 compiling stm32f4xx_it.c...
 compiling system_stm32f4xx.c...
 compiling led.c...
 compiling rs485.c...
 compiling localbus.c...
-..\HARDWARE\LOCALBUS\localbus.c(169): warning:  #188-D: enumerated type mixed with another type
+..\HARDWARE\LOCALBUS\localbus.c(167): warning:  #188-D: enumerated type mixed with another type
                 GPIO_WriteBit(Localbus_WR_GPIO_type[pis], Localbus_WR_GPIO_pins[pis], bit);
-..\HARDWARE\LOCALBUS\localbus.c(189): warning:  #177-D: variable "addr_base" was declared but never referenced
+..\HARDWARE\LOCALBUS\localbus.c(187): warning:  #177-D: variable "addr_base" was declared but never referenced
         uint16_t addr_offset, addr_base;
-..\HARDWARE\LOCALBUS\localbus.c(237): warning:  #188-D: enumerated type mixed with another type
+..\HARDWARE\LOCALBUS\localbus.c(235): warning:  #188-D: enumerated type mixed with another type
                 GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
-..\HARDWARE\LOCALBUS\localbus.c(244): warning:  #188-D: enumerated type mixed with another type
+..\HARDWARE\LOCALBUS\localbus.c(242): warning:  #188-D: enumerated type mixed with another type
                 GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
-..\HARDWARE\LOCALBUS\localbus.c(298): warning:  #177-D: variable "temp" was declared but never referenced
+..\HARDWARE\LOCALBUS\localbus.c(296): warning:  #177-D: variable "temp" was declared but never referenced
         uint32_t *temp;
 ..\HARDWARE\LOCALBUS\localbus.c: 5 warnings, 0 errors
 compiling timer.c...
+compiling modbus.c...
+..\HARDWARE\MODBUS_SLAVE\modbus.c(198): warning:  #177-D: variable "data" was declared but never referenced
+        uint16_t data = 0;
+..\HARDWARE\MODBUS_SLAVE\modbus.c: 1 warning, 0 errors
 compiling delay.c...
 compiling sys.c...
 compiling usart.c...
@@ -73,21 +79,23 @@ compiling cl1_1.c...
           printf("Hard init MVBC result = %d\r\n", result);
 ..\DEMON\src\cl1_1.c: 3 warnings, 0 errors
 compiling demo11.c...
-..\DEMON\src\demo11.c(142): warning:  #223-D: function "delay_ms" declared implicitly
-                                        delay_ms(1000);
-..\DEMON\src\demo11.c(160): warning:  #111-D: statement is unreachable
-                                if (ch == '0' || ch == '1') {
-..\DEMON\src\demo11.c(187): warning:  #1-D: last line of file ends without a newline
+..\DEMON\src\demo11.c(27): warning:  #177-D: variable "sink_port_count" was declared but never referenced
+        UNSIGNED16 sink_port_count = 0;
+..\DEMON\src\demo11.c(201): warning:  #111-D: statement is unreachable
+          MVBCStop(0);
+..\DEMON\src\demo11.c(206): warning:  #1-D: last line of file ends without a newline
   }
-..\DEMON\src\demo11.c: 3 warnings, 0 errors
+..\DEMON\src\demo11.c(112): warning:  #177-D: variable "chi" was declared but never referenced
+    int ch, chi;
+..\DEMON\src\demo11.c: 4 warnings, 0 errors
 compiling HOST_DEP.C...
 linking...
-Program Size: Code=15652 RO-data=596 RW-data=340 ZI-data=2324  
+Program Size: Code=17416 RO-data=1108 RW-data=364 ZI-data=8756  
 FromELF: creating hex file...
-"..\OBJ\RS485.axf" - 0 Error(s), 14 Warning(s).
+"..\OBJ\RS485.axf" - 0 Error(s), 17 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  D:\Rui\104\arm\20190108\USER\RTE
+  D:\Rui\104\20190124\USER\RTE
   C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
 
 <h2>Collection of Component Files used:</h2>

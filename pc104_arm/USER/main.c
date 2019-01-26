@@ -1,13 +1,12 @@
 #include "sys.h"
 #include "delay.h"
-//#include "usart.h"
 #include "led.h"
-#include "rs485.h"
-#include "localbus.h"
 #include "timer.h"
 #include "usart.h"
-
-#include "demon.h"
+#include "rs485.h"
+#include "localbus.h"
+#include "modbus.h"
+#include "stm32f4xx_it.h"
 
 uint8_t RS485_BUF[64];
 uint8_t RS485_len;
@@ -25,6 +24,10 @@ uint16_t  test_data2 = 0x5678;
 uint16_t  res_data1;
 uint16_t  res_data2;
 
+uint32_t recode_time1 = 0;
+uint32_t recode_time2 = 0;
+uint32_t recode_time3 = 0;
+
 int main(void)
 { 
 	uint32_t i = 0;
@@ -37,9 +40,12 @@ int main(void)
 	//Localbus_GPIO_Init();
 	//LED_Init();					//初始化LED 
 	RS485_Init(115200);		//初始化RS485串口2
+	MVB_Parameter_Init();
+	Modbus_Init();
 	delay_ms(500);
 	Localbus_Exit_Init();
-	//TIM3_Int_Init(10-1,83); 									  
+	TIM3_Int_Init();
+  TIM4_Int_Init();	
   Localbus_MEM_R = 1;
 	Localbus_ARM_CS = 1;
 	Localbus_MEM_W = 1;
@@ -47,6 +53,7 @@ int main(void)
 	PC104_ARM_REFRESH = 1;
 	MVBC_RESET = 0;
   delay_ms(1);
+	
 	//while (1) {
 		//USART_SendData(USART3, test_rs485[0]);
 		//while(USART_GetFlagStatus(USART3,USART_FLAG_TC)!=SET);
@@ -84,11 +91,33 @@ int main(void)
 		//res_data2 = 0;
 	//}
 	
-	test_main();
+	//test_main();
+	
+	while(1) {
+	  if (millis1() - recode_time1 > 5) {
+			recode_time1 = millis1();
+		  Modbus_Service();
+		}
+		
+		if (millis1() - recode_time2 > 10) {
+			recode_time2 = millis1();
+		  MVB_Service();
+		}
+		
+		if (millis2() - recode_time3 > 10) {
+		  recode_time3 = millis2();
+			Heartbeat_Service();
+		}
+		
+		//if (uwTick % 100 == 0) {
+		//  Heartbeat_Service();
+		//}
+	}
+	
 	
 	//for (i = 0; i < 1000; i++)
 	//	  data = GPIOD->IDR & GPIO_Pin_10;// GPIO_ReadInputDataBit(GPIOD, GPIO_Pin_10);
-			
+	MVBCStop(0);		
 	return 0;
 	//Localbus_TEST = 1;
   /*while (1) {

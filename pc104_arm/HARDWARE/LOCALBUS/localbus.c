@@ -13,8 +13,6 @@ uint16_t count_inter = 0;
 uint32_t PC104_addr = 0xFFFF;
 uint32_t data_t[16] = {0};
 
-
-
 #if defined(PC_MODE_A)
   uint8_t m_mode = 0;
 #elif defined(PC_MODE_B)
@@ -237,7 +235,7 @@ void Localbus_WriteAddr(uint32_t addr) {
 		GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
     //addr = addr << 1;
   }
-	delay_ms(1);
+	delay_us(10);
 	Localbus_ARM_ADDR_WAIT = 0;
 	for (pis = 0; pis < 12; pis ++) {
 		bit = (uint8_t)((addr_h & Localbus_ADDR_mask[pis]) >> pis);
@@ -349,16 +347,16 @@ void Localbus_Read_IRQHandler(void) {
 	EXTI_ClearITPendingBit(EXTI_Line2);//清除LINE4上的中断标志位  
 }
 
-void PC104_Read_IRQHandler(void) {
+/*void PC104_Read_IRQHandler(void) {
 	uint16_t data;
   data = Localbus_ReadData(PC104_addr);
 	RS485_Send_Data((uint8_t *)&data, 2);
-}
+}*/
 
-void Local_put_bytes(uint32_t addr, const uint16_t *data, uint16_t len) {
+/*void Local_put_bytes(uint32_t addr, const uint16_t *data, uint16_t len) {
   while (len--) {
 	  Localbus_WriteData(addr, data);
 		addr++;
 		data++;
   }
-}
+}*/

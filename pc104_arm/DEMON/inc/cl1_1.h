@@ -175,6 +175,17 @@ extern UNSIGNED8 MVBCInit (
 }*/
 
 
+extern UNSIGNED8 MVBCGetSCRIL(
+    UNSIGNED16 ts_id     /* ID of traffic store */
+);
+/*{
+    The function get MVBC IL status.
+    Return values:  TM_SCR_IL_RUNNING
+                    TM_SCR_IL_TEST
+                    TM_SCR_IL_CONFIG
+                    TM_SCR_IL_RESET
+}*/
+
 extern UNSIGNED8 MVBCStart(
     UNSIGNED16 ts_id     /* ID of traffic store */
 );

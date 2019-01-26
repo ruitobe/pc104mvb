@@ -1936,7 +1936,6 @@ UNSIGNED8 lc_tmo_config (
 } /* Ende lc_tmo_config */
 #endif
 
-
 /****************************************************************************
 **  name         : MVBCInit
 **===========================================================================
@@ -2021,6 +2020,36 @@ UNSIGNED8 MVBCInit (TYPE_LP_TS_CFG *Configuration, UNSIGNED16 ts_id)
 #endif
     return MVB_NO_ERROR;
 } /* MVBCInit */
+
+/****************************************************************************
+**  name         : MVBCGetSCRIL
+**===========================================================================
+**  parameters   : Configuration: Pointer to port configuration
+                   ts_id:         Traffic Store ID
+
+**  return value : MVB_ERROR_PARA
+                   MVB_NO_ERROR
+                   MVB_ERROR_NO_MVBC
+                   MVB_ERROR_MVBC_RESET
+                   
+**  description  : The function initializes MVBC and traffic store
+
+**  caveats      : -
+*****************************************************************************/
+UNSIGNED8 MVBCGetSCRIL(UNSIGNED16 ts_id) {
+	UNSIGNED8  result;
+  TM_TYPE_SCR local_scr;       /* Local copy of SCR                 */
+
+  result = lci_check_ts_valid(ts_id);
+  /* Return Value, check for valid ts  */
+  if (result == MVB_LC_OK) {
+    local_scr.w = readWordFromMVBC(
+      (void*)(&(lci_ctrl_blk[ts_id].p_sa->int_regs.scr.w)));
+		return GETSCRIL(local_scr);
+	} else {
+		return 0xFF;
+	}
+}
 
 
 /****************************************************************************

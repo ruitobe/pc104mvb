@@ -37,3 +37,12 @@
 ..\obj\timer.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\timer.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
 ..\obj\timer.o: ..\HARDWARE\LED\led.h
+..\obj\timer.o: ..\HARDWARE\MODBUS_SLAVE\modbus.h
+..\obj\timer.o: ..\HARDWARE\RS485\rs485.h
+..\obj\timer.o: ..\DEMON\inc\demon.h
+..\obj\timer.o: ..\DEMON\inc\config.h
+..\obj\timer.o: ..\DEMON\inc\host_dep.h
+..\obj\timer.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\timer.o: ..\DEMON\inc\dpr_dep.h
+..\obj\timer.o: ..\DEMON\inc\cl1_ret.h
+..\obj\timer.o: ..\DEMON\inc\cl1_1.h

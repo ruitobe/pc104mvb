@@ -5,19 +5,107 @@
 //#include <conio.h>  
 //#include <graph.h>
 
-
-#include "config.h"
-#include "host_dep.h"
-#include "dpr_dep.h"
-#include "cl1_ret.h"
-#include "cl1_1.h"
 #include "demon.h"
+#include "modbus.h"
 
 char outStr0[80], outStr1[80], outStr2[80];
 UNSIGNED16 p100buf[2], p101buf[2], p208buf[2], p209buf[2];
-TYPE_LP_PRT_CFG mvb_ts_cfg[4];
-UNSIGNED8 retWert, retWert100, retWert101, retWert208, retWert209;
+
+uint8_t MVB_Initial_Regs_Read = 0;
+
+UNSIGNED16 pc104_data_buff[17 * 32];
+
+UNSIGNED16 pc104_data_old[17 * 32];
+
+TYPE_LP_PRT_CFG mvb_ts_cfg[32];
 TYPE_LP_TS_CFG mvb;
+
+UNSIGNED8 retWert, retWert100, retWert101, retWert208, retWert209;
+
+void MVB_Service(void) {
+	UNSIGNED16 age;
+	UNSIGNED16 sink_port_count = 0;
+	UNSIGNED8 pis = 0;
+	UNSIGNED8 i = 0;
+	UNSIGNED8 reg_num = 0;
+	UNSIGNED8 freshness = 0;
+  
+	if (MVB_START_FLAG == 0)
+		return;
+	if (MVB_Initial_Regs_Read == 0) {
+	  for (pis = 0; pis < mvb.prt_count; pis ++) {
+		  if (mvb_ts_cfg[pis].type == LP_CFG_SINK) {
+		    MVBCGetPort(mvb_ts_cfg[pis].prt_addr, &pc104_data_old[pis * 17], 0x0000, &age, 0);
+		  }
+		}
+		MVB_Initial_Regs_Read = 1;
+		if (mvb_ts_cfg[pis].size == 2) {
+		  reg_num = 1;
+		} else if (mvb_ts_cfg[pis].size == 4) {
+		  reg_num = 2;
+		} else if (mvb_ts_cfg[pis].size == 8) {
+		  reg_num = 4;
+		} else if (mvb_ts_cfg[pis].size == 16) {
+		  reg_num = 8;
+		} else if (mvb_ts_cfg[pis].size == 32) {
+		  reg_num = 16;
+		}
+		return;
+	}
+	
+  for (pis = 0; pis < mvb.prt_count; pis ++) {
+	  if (mvb_ts_cfg[pis].type == LP_CFG_SINK) {
+		  MVBCGetPort(mvb_ts_cfg[pis].prt_addr, &pc104_data_buff[pis * 17], 0x0000, &age, 0);
+			for (i = 0; i < reg_num; i++) {
+			  if (pc104_data_old[pis * 17 + i] != pc104_data_buff[pis * 17 + i]) {
+					// Data is different, freshness is true
+					freshness = 1;
+					// Update pc104_data_old
+					pc104_data_old[pis * 17 + i] = pc104_data_buff[pis * 17 + i];
+				}
+			}
+			freshness = 0;
+			
+			if (freshness == 1) {
+			  pc104_data_buff[(pis + 1)* reg_num] = 0x0001;
+				freshness = 0;
+			} else {
+			  // Data is same, freshness is false
+			  pc104_data_buff[(pis + 1)* reg_num] = 0x0000;
+			}
+		} else {
+		  MVBCPutPort(mvb_ts_cfg[pis].prt_addr, &pc104_data_buff[pis * 17], 0);
+		}
+	}
+	// Set MVB watchdog 16384ms
+	MVBCRetriggerWd(0, 0x8200);
+	MVBCIdle(0);
+}
+
+void MVB_Parameter_Init(void) {
+	
+	mvb.pb_pit = 0xD0000L;       /* from NSDB: TRAFFIC-STORE */
+  mvb.pb_pcs = 0xDC000L;       /*            "             */
+  mvb.pb_prt = 0xD4000L;       /*            "             */
+  mvb.pb_frc = 0xD8000L;       /*            "             */
+  mvb.pb_def = 0;              /*            "             */
+  mvb.ownership = 1;           /*            "             */
+  mvb.ts_type = 1;             /*            "             */
+  mvb.prt_addr_max = 4095;     /*            "             */
+  mvb.prt_indx_max = 31;       /*            "             */
+  // Port count is from config via Modbus
+	//mvb.prt_count = 4;           /*            "             */
+  mvb.tm_start = 0xD0000L;     /* from NSDB: MVBC-INITIALISIERUNG */
+  mvb.mcm = 2;                 /*                "                */
+  mvb.msq_offset = 0;          /*                "                */
+  mvb.mft_offset = 0;          /*                "                */
+  mvb.line_cfg = 2;            /*                "                */
+  mvb.reply_to = 1;            /*                "                */
+	// Device address is from config via Modbus
+  //mvb.dev_addr = 0x0A;         /*                "                */
+  mvb.p_prt_cfg = (UNSIGNED32) mvb_ts_cfg;
+}
+
 
 int test_main(void)
 {
@@ -106,7 +194,7 @@ int test_main(void)
     			sprintf(outStr2, "Sink:    208   %04.4X /  %02.2d       209   %04.4X /  %02.2d\r\n", p208buf[1], retWert208, p209buf[1], retWert209);
 					printf("%s%s%s", outStr0, outStr1, outStr2);
 					MVBCIdle(0);
-					delay_ms(1000);
+					//delay_ms(1000);
 				}
 		  } while (1);
 	
