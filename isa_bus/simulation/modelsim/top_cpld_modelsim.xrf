@@ -1,9 +1,9 @@
 vendor_name = ModelSim
-source_file = 1, D:/Rui/104/pc104mvb/isa_bus/simulation/modelsim/top_cpld_vlg_tst.vt
-source_file = 1, D:/Rui/104/pc104mvb/isa_bus/output_files/top_cpld.sdc
-source_file = 1, D:/Rui/104/pc104mvb/isa_bus/rtl/top_cpld.v
-source_file = 1, D:/Rui/104/pc104mvb/isa_bus/output_files/Chain1.cdf
-source_file = 1, D:/Rui/104/pc104mvb/isa_bus/db/top_cpld.cbx.xml
+source_file = 1, D:/Project/PC104/pc104mvb/isa_bus/simulation/modelsim/top_cpld_vlg_tst.vt
+source_file = 1, D:/Project/PC104/pc104mvb/isa_bus/output_files/top_cpld.sdc
+source_file = 1, D:/Project/PC104/pc104mvb/isa_bus/rtl/top_cpld.v
+source_file = 1, D:/Project/PC104/pc104mvb/isa_bus/output_files/Chain1.cdf
+source_file = 1, D:/Project/PC104/pc104mvb/isa_bus/db/top_cpld.cbx.xml
 design_name = top_cpld
 instance = comp, \isa_data[0]~I , isa_data[0], top_cpld, 1
 instance = comp, \isa_data[1]~I , isa_data[1], top_cpld, 1

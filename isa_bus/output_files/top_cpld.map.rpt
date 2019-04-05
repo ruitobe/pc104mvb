@@ -1,5 +1,5 @@
 Analysis & Synthesis report for top_cpld
-Wed Jan 09 00:30:55 2019
+Fri Apr 05 18:50:08 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -44,7 +44,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                              ;
 +-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Wed Jan 09 00:30:55 2019       ;
+; Analysis & Synthesis Status ; Successful - Fri Apr 05 18:50:08 2019       ;
 ; Quartus II 64-Bit Version   ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name               ; top_cpld                                    ;
 ; Top-level Entity Name       ; top_cpld                                    ;
@@ -134,7 +134,7 @@ applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
+; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
@@ -142,17 +142,17 @@ applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                             ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path               ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
-; rtl/top_cpld.v                   ; yes             ; User Verilog HDL File  ; D:/Rui/104/pc104mvb/isa_bus/rtl/top_cpld.v ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------+---------+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                   ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                     ; Library ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
+; rtl/top_cpld.v                   ; yes             ; User Verilog HDL File  ; D:/Project/PC104/pc104mvb/isa_bus/rtl/top_cpld.v ;         ;
++----------------------------------+-----------------+------------------------+--------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -254,9 +254,9 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Wed Jan 09 00:30:53 2019
+    Info: Processing started: Fri Apr 05 18:50:06 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off top_cpld -c top_cpld
-Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/top_cpld.v
     Info (12023): Found entity 1: top_cpld
 Info (12127): Elaborating entity "top_cpld" for the top level hierarchy
@@ -268,17 +268,17 @@ Info (21057): Implemented 140 device resources after synthesis - the final resou
     Info (21059): Implemented 29 output pins
     Info (21060): Implemented 32 bidirectional pins
     Info (21061): Implemented 60 logic cells
-Info (144001): Generated suppressed messages file D:/Rui/104/pc104mvb/isa_bus/output_files/top_cpld.map.smsg
+Info (144001): Generated suppressed messages file D:/Project/PC104/pc104mvb/isa_bus/output_files/top_cpld.map.smsg
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 451 megabytes
-    Info: Processing ended: Wed Jan 09 00:30:55 2019
+    Info: Peak virtual memory: 4628 megabytes
+    Info: Processing ended: Fri Apr 05 18:50:08 2019
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in D:/Rui/104/pc104mvb/isa_bus/output_files/top_cpld.map.smsg.
+The suppressed messages can be found in D:/Project/PC104/pc104mvb/isa_bus/output_files/top_cpld.map.smsg.
 
 

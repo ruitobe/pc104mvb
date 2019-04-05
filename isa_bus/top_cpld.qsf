@@ -147,3 +147,4 @@ set_location_assignment PIN_26 -to arm_data[15]
 set_location_assignment PIN_27 -to addr_sel
 set_location_assignment PIN_87 -to isa_addr[15]
 set_instance_assignment -name IO_STANDARD "3.3-V LVCMOS" -to io_chrdy
+set_location_assignment PIN_49 -to rst_n

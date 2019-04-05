@@ -1,3 +1,4 @@
+/*PC104 FOR SMENS*/
 module top_cpld(
     //global signal, 50MHZ
     input clk,  
@@ -16,7 +17,6 @@ module top_cpld(
 	 /*other control*/
 	 output oe,
 	 output dir,
-	// output led, 
 	 /*arm_data*/
 	 input addr_sel,
 	 input [11:0] arm_addr,
@@ -64,13 +64,9 @@ always @(posedge clk or negedge rst_n) begin
 	end
 	else begin
 		if (addr_sel)begin
-			isa_addr_r[11:0] <= arm_addr;
-		   //isa_addr_r[11:0] <= 12'b010101010101;
-		   //isa_addr_r[11:0] <= 12'b111110000000;	
+			isa_addr_r[11:0] <= arm_addr;	
 		end else begin
 			isa_addr_r[22:12] <= arm_addr[10:0];
-			//isa_addr_r[22:12] <= 11'b00001101101;
-			//isa_addr_r[22:12] <= 11'b00001101111;
 		end
 	end
 end

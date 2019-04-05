@@ -1,5 +1,5 @@
 Flow report for top_cpld
-Wed Jan 09 00:31:11 2019
+Fri Apr 05 18:50:19 2019
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------------+
 ; Flow Summary                                                            ;
 +---------------------------+---------------------------------------------+
-; Flow Status               ; Successful - Wed Jan 09 00:31:11 2019       ;
+; Flow Status               ; Successful - Fri Apr 05 18:50:19 2019       ;
 ; Quartus II 64-Bit Version ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name             ; top_cpld                                    ;
 ; Top-level Entity Name     ; top_cpld                                    ;
@@ -59,7 +59,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/09/2019 00:30:54 ;
+; Start date & time ; 04/05/2019 18:50:07 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; top_cpld            ;
 +-------------------+---------------------+
@@ -70,7 +70,7 @@ applicable agreement for further details.
 +---------------------------------------+-----------------------------------------+---------------+-------------+------------------+
 ; Assignment Name                       ; Value                                   ; Default Value ; Entity Name ; Section Id       ;
 +---------------------------------------+-----------------------------------------+---------------+-------------+------------------+
-; COMPILER_SIGNATURE_ID                 ; 57185456524083.154696505400624          ; --            ; --          ; --               ;
+; COMPILER_SIGNATURE_ID                 ; 220837866582885.155446140712164         ; --            ; --          ; --               ;
 ; EDA_DESIGN_INSTANCE_NAME              ; NA                                      ; --            ; --          ; top_cpld_vlg_tst ;
 ; EDA_NATIVELINK_SIMULATION_TEST_BENCH  ; top_cpld_vlg_tst                        ; --            ; --          ; eda_simulation   ;
 ; EDA_OUTPUT_DATA_FORMAT                ; Verilog Hdl                             ; --            ; --          ; eda_simulation   ;
@@ -94,12 +94,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 451 MB              ; 00:00:02                           ;
-; Fitter                    ; 00:00:04     ; 1.0                     ; 1017 MB             ; 00:00:04                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 415 MB              ; 00:00:01                           ;
-; TimeQuest Timing Analyzer ; 00:00:02     ; 1.0                     ; 431 MB              ; 00:00:02                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 385 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:10     ; --                      ; --                  ; 00:00:10                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 4628 MB             ; 00:00:01                           ;
+; Fitter                    ; 00:00:02     ; 1.0                     ; 5316 MB             ; 00:00:02                           ;
+; Assembler                 ; 00:00:01     ; 1.0                     ; 4581 MB             ; 00:00:01                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 4617 MB             ; 00:00:02                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4552 MB             ; 00:00:01                           ;
+; Total                     ; 00:00:07     ; --                      ; --                  ; 00:00:07                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -108,11 +108,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; cisco-PC         ; Windows 7 ; 6.1        ; x86_64         ;
-; Fitter                    ; cisco-PC         ; Windows 7 ; 6.1        ; x86_64         ;
-; Assembler                 ; cisco-PC         ; Windows 7 ; 6.1        ; x86_64         ;
-; TimeQuest Timing Analyzer ; cisco-PC         ; Windows 7 ; 6.1        ; x86_64         ;
-; EDA Netlist Writer        ; cisco-PC         ; Windows 7 ; 6.1        ; x86_64         ;
+; Analysis & Synthesis      ; LAPTOP-U5PDLVAD  ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; LAPTOP-U5PDLVAD  ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; LAPTOP-U5PDLVAD  ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; LAPTOP-U5PDLVAD  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; LAPTOP-U5PDLVAD  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 

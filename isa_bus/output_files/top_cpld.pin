@@ -110,7 +110,7 @@ VCCIO1                       : 45        : power  :                   : 3.3V    
 GNDIO                        : 46        : gnd    :                   :         :           :                
 mem_r                        : 47        : output : 3.3-V LVTTL       :         : 1         : Y              
 mem_w                        : 48        : output : 3.3-V LVTTL       :         : 1         : Y              
-rst_n                        : 49        : input  : 3.3-V LVTTL       :         : 1         : N              
+rst_n                        : 49        : input  : 3.3-V LVTTL       :         : 1         : Y              
 isa_data[7]                  : 50        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
 isa_data[6]                  : 51        : bidir  : 3.3-V LVTTL       :         : 1         : Y              
 isa_data[5]                  : 52        : bidir  : 3.3-V LVTTL       :         : 2         : Y              
