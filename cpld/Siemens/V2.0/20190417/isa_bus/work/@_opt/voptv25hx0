@@ -1,0 +1,48 @@
+m255
+K3
+13
+cModel Technology
+dC:\modeltech_10.1a\examples
+T_opt
+VZmn>S763J3f9`<4g]ZE2W3
+04 8 4 work top_cpld fast 0
+=1-c8d9d2973365-5bf7fa02-10d-2e74
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OE;O;10.1a;51
+vtop_cpld
+IL>oc5Wg>8MN_`N7@<7HcU1
+Vn2g9Y`kBVTF=hQM:Z`jzo1
+Z0 dD:\Project\PC104\ETree_C02_Board\code\CPLD_Only\isa\isa_bus
+w1541903939
+8D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v
+FD:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v
+L0 1
+Z1 OE;L;10.1a;51
+r1
+31
+Z2 o-work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!s100 ??`<Wo^WS:^7AYB8W1_V63
+!s108 1542978033.650000
+!s107 D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v|
+!s90 -reportprogress|300|-work|work|-vopt|D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v|
+!i10b 1
+!s85 0
+vtop_cpld_vlg_tst
+I3Q]OYM[^bjcE_KUP^[mPR0
+V_YBa>Eo^]>Q^S3l;JDAeR2
+Z3 dD:\Project\PC104\ETree_C02_Board\code\CPLD_Only\isa\isa_bus
+w1542977540
+8D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld.vt
+FD:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld.vt
+L0 28
+R1
+r1
+31
+R2
+!i10b 1
+!s100 Nh5clDS[_M`2BKU[5Y2]T0
+!s85 0
+!s108 1542978034.214000
+!s107 D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld.vt|
+!s90 -reportprogress|300|-work|work|-vopt|D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld.vt|

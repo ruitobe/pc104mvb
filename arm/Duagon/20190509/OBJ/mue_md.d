@@ -1,0 +1,10 @@
+..\obj\mue_md.o: ..\MUE\base\mue_md.c
+..\obj\mue_md.o: ..\DUAGON\inc\tcn_common.h
+..\obj\mue_md.o: ..\DUAGON\inc\tcn_def.h
+..\obj\mue_md.o: ..\MUE\base\mue_def.h
+..\obj\mue_md.o: ..\DUAGON\inc\tcn_pd.h
+..\obj\mue_md.o: ..\DUAGON\inc\tcn_sv_m.h
+..\obj\mue_md.o: ..\MUE\project\tcn_prj.h
+..\obj\mue_md.o: ..\MUE\base\mue_osl.h
+..\obj\mue_md.o: ..\MUE\base\mue_acc.h
+..\obj\mue_md.o: ..\MUE\base\mue_md.h

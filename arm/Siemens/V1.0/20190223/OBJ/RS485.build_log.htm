@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Rui Huang, Rui, LIC=4ZLPC-73YX5-JMZ98-3M9XN-NP018-L0ZFF
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+D:\Rui\104\arm\20190223\USER\RS485.uvprojx
+Project File Date:  02/12/2019
+
+<h2>Output:</h2>
+Build target 'RS485'
+compiling demo11.c...
+..\DEMON\src\demo11.c(34): warning:  #177-D: variable "sink_port_count" was declared but never referenced
+        UNSIGNED16 sink_port_count = 0;
+..\DEMON\src\demo11.c(250): warning:  #223-D: function "delay_ms" declared implicitly
+                                        delay_ms(512);
+..\DEMON\src\demo11.c(254): warning:  #111-D: statement is unreachable
+          MVBCStop(0);
+..\DEMON\src\demo11.c(259): warning:  #1-D: last line of file ends without a newline
+  }
+..\DEMON\src\demo11.c(164): warning:  #177-D: variable "chi" was declared but never referenced
+    int ch, chi;
+..\DEMON\src\demo11.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=18136 RO-data=1108 RW-data=336 ZI-data=8960  
+FromELF: creating hex file...
+"..\OBJ\RS485.axf" - 0 Error(s), 5 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  D:\Rui\104\arm\20190223\USER\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>

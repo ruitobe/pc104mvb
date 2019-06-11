@@ -1,0 +1,53 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.14.0.0
+Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Rui Huang, Rui, LIC=4ZLPC-73YX5-JMZ98-3M9XN-NP018-L0ZFF
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.05 update 1 (build 106)
+Assembler:       Armasm.exe V5.05 update 1 (build 106)
+Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
+Library Manager: ArmAr.exe V5.05 update 1 (build 106)
+Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TCM.DLL V1.14.4.0
+ 
+<h2>Project:</h2>
+D:\Rui\104\arm\Siemens\V2.0\20190416\20190416\USER\RS485.uvprojx
+Project File Date:  04/13/2019
+
+<h2>Output:</h2>
+Build target 'RS485'
+compiling localbus.c...
+..\HARDWARE\LOCALBUS\localbus.c(180): warning:  #188-D: enumerated type mixed with another type
+                GPIO_WriteBit(Localbus_WR_GPIO_type[pis], Localbus_WR_GPIO_pins[pis], bit);
+..\HARDWARE\LOCALBUS\localbus.c(201): warning:  #177-D: variable "addr_base" was declared but never referenced
+        uint16_t addr_offset, addr_base;
+..\HARDWARE\LOCALBUS\localbus.c(249): warning:  #188-D: enumerated type mixed with another type
+                GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
+..\HARDWARE\LOCALBUS\localbus.c(256): warning:  #188-D: enumerated type mixed with another type
+                GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
+..\HARDWARE\LOCALBUS\localbus.c(310): warning:  #177-D: variable "temp" was declared but never referenced
+        uint32_t *temp;
+..\HARDWARE\LOCALBUS\localbus.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=18164 RO-data=1108 RW-data=352 ZI-data=8960  
+FromELF: creating hex file...
+"..\OBJ\RS485.axf" - 0 Error(s), 5 Warning(s).
+
+<h2>Collection of Component include folders:</h2>
+  D:\Rui\104\arm\Siemens\V2.0\20190416\20190416\USER\RTE
+  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
+
+<h2>Collection of Component Files used:</h2>
+</pre>
+</body>
+</html>

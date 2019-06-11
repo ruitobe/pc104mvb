@@ -1,0 +1,15 @@
+..\obj\tcn_as.o: ..\DUAGON\src\tcn_as.c
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_common.h
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_def.h
+..\obj\tcn_as.o: ..\MUE\base\mue_def.h
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_pd.h
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_sv_m.h
+..\obj\tcn_as.o: ..\MUE\project\tcn_prj.h
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_osl.h
+..\obj\tcn_as.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\errno.h
+..\obj\tcn_as.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+..\obj\tcn_as.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\tcn_as.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_sv.h
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_ls.h
+..\obj\tcn_as.o: ..\DUAGON\inc\tcn_as.h

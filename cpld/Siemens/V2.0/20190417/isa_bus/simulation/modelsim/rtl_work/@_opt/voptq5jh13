@@ -1,0 +1,50 @@
+m255
+K3
+13
+cModel Technology
+Z0 dD:\Project\PC104\ETree_C02_Board\code\CPLD_Only\isa\isa_bus\simulation\modelsim
+T_opt
+VEh31Im[DbK3[hCD2SQCYO3
+04 16 4 work top_cpld_vlg_tst fast 0
+=1-c8d9d2973365-5bfa51ee-35f-3880
+o-quiet -auto_acc_if_foreign -work work -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L maxii_ver -L rtl_work -L work +acc
+n@_opt
+OE;O;10.1a;51
+vtop_cpld
+I[VQY:CC;VWHD6`dhMmCEK3
+VgFShm1`UhHzM=oc9@?2ek1
+Z1 dD:\Project\PC104\ETree_C02_Board\code\CPLD_Only\isa\isa_bus\simulation\modelsim
+w1543131449
+8D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v
+FD:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v
+L0 1
+Z2 OE;L;10.1a;51
+r1
+31
+Z3 o-vlog01compat -work work -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+!i10b 1
+!s100 9TeI3mNZFSShlAWLN70jS3
+!s85 0
+!s108 1543131629.110000
+!s107 D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl|D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl/top_cpld.v|
+!s92 -vlog01compat -work work +incdir+D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/rtl -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
+vtop_cpld_vlg_tst
+IF`:DizOGJ5DLQKCO4G=I12
+V_YBa>Eo^]>Q^S3l;JDAeR2
+R1
+w1543131510
+8D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld_vlg_tst.vt
+FD:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld_vlg_tst.vt
+L0 28
+R2
+r1
+31
+R3
+!i10b 1
+!s100 J=XZEP<GRn_k3Dgf3EkDl2
+!s85 0
+!s108 1543131629.530000
+!s107 D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld_vlg_tst.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim|D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim/top_cpld_vlg_tst.vt|
+!s92 -vlog01compat -work work +incdir+D:/Project/PC104/ETree_C02_Board/code/CPLD_Only/isa/isa_bus/simulation/modelsim -L mtiAvm -L mtiOvm -L mtiUvm -L mtiUPF
