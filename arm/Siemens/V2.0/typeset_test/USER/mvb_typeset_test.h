@@ -56,6 +56,22 @@ struct 3368_msg_t {
 	uint8_t	 BITSET8;
 } 3368_msg;
 
+#define DEFAULT_3360_MSG \
+{ 0X7f7f,\
+	0,\
+	0xA1A1,\
+	0xA,\
+	0x3,\
+	0x1,\
+	0x1,\
+	0xA1,\
+	0xFFFF,\
+	0xFFFF,\
+	0xA2,\
+	0xf,\
+	0xB,\
+	0X7f,\
+\}
 struct 3360_msg_t {
 	int16_t INT16_1;
 	int16_t INT16_2;
@@ -71,7 +87,7 @@ struct 3360_msg_t {
 	uint8_t  2xVALID:4;
 	uint8_t	 ENUM4:4;
 	uint8_t	 BITSET8;
-}3360_msg;
+}3360_msg = DEFAULT_3360_MSG;
 
 /*3390<-->3376*/
 #define PORTCYC_3390_3376	(64)
@@ -87,6 +103,17 @@ struct 3390_msg_t {
 	uint8_t ENUM4:4;
 }3390_msg;
 
+#define DEFAULT_3376_MSG \
+{	0x7F7F,\
+	0xA1,\
+	0xA2,\
+	0xA3,\
+	0x7F,\
+	0x21,\
+	0xB,\
+	0xA,\
+\}
+
 struct 3376_msg_t {
 	uint16_t INT16_1;
 	uint8_t BITSET8;
@@ -96,7 +123,7 @@ struct 3376_msg_t {
 	char CHAR1;
 	uint8_t BCD4:4;
 	uint8_t ENUM4:4;
-}3376_msg;
+}3376_msg = DEFAULT_3376_MSG;
 
 /*3391 <---> 3377*/
 #define PORTCYC_3391_3377	(128)
@@ -117,8 +144,27 @@ struct 3391_msg_t {
 	uint16_t TICKS;
 	uint8_t BCD4:4;
 	uint8_t ENUM4:4;
-	uint8_t UNINT8_1;
+	uint8_t UINT8_1;
 }3391_msg;
+
+#define DEFAULT_3377_MSG \
+{	0x7f7f,\
+	0x21,\
+	0xA,\
+	0x3,\
+	0x1,\
+	0x1,\
+	0xA1A1A1,\
+	0xA1A1,\
+	"ABCDEFGHIJ",\
+	0x7FFFFFFF,\
+	0xA2A2,\
+	0xA3A3,\
+	0,\
+	0XC,\
+	0xB,\
+	0xA1,\
+\}
 
 struct 3377_msg_t {
 	int16_t INT16_1;
@@ -136,8 +182,8 @@ struct 3377_msg_t {
 	uint16_t TICKS;
 	uint8_t BCD4:4;
 	uint8_t ENUM4:4;
-	uint8_t UNINT8_1;
-}3377_msg;
+	uint8_t UINT8_1;
+}3377_msg = DEFAULT_3377_MSG;
 
 
 /*3392 <---> 3378*/
@@ -150,12 +196,18 @@ struct 3392_msg_t {
 	uint8_t BITSET8;
 }3392_msg;
 
+#define DEFAULT_3378_MSG \
+{	0x3f,\
+	0x3,\
+	0xa1,\
+} 
+
 struct 3378_msg_t {
 	int16_t INT16_1;
 	uint8_t ANTIVALENT2:2;
 	uint8_t 3xVALID:6;
 	uint8_t BITSET8;
-}3378_msg;
+}3378_msg = DEFAULT_3378_MSG;
 
 /*3393 <---> 3379*/
 #define PORTCYC_3393_3379	(512)
@@ -172,6 +224,17 @@ struct 3393_msg_t {
 	char STR16[16];
 }3393_msg;
 
+#define DEFAULT_3379_MSG \
+{	0x7f7f,\
+	0xa1a1,\
+	"ABC0",\
+	"ABCD",\
+	0x7FFF,\
+	0x5,\
+	0xa,\
+	0x55,\
+	"ABCDEFGHIJKLMNOP",\
+}
 struct 3379_msg_t {
 	int16_t INT16_1;
 	uint16_t BITSET16;
@@ -182,7 +245,7 @@ struct 3379_msg_t {
 	uint8_t 2xVALID:4;
 	uint8_t 4xVALID;
 	char STR16[16];
-}3379_msg;
+}3379_msg = DEFAULT_3379_MSG;
 
 /*3394 <---> 3380*/
 #define PORTCYC_3394_3380	(1024)
@@ -196,6 +259,13 @@ struct 3394_msg_t {
 	uint32_t UINT32_2;
 }3394_msg;
 
+#define DEFAULT_3380_MSG \
+{	0x55,\
+	0x21,\
+	0xA1A1A1A1,\
+	0xA2A2A2A2,\
+	0xA3A3A3A3,\
+}
 struct 3380_msg_t {
 	int16_t INT16_1;
 	uint8_t 4xVALID;
@@ -203,6 +273,6 @@ struct 3380_msg_t {
 	uint32_t BITSET32;
 	uint32_t UINT32_1;
 	uint32_t UINT32_2;
-}3380_msg;
+}3380_msg = DEFAULT_3380_MSG;
 #endif
 
