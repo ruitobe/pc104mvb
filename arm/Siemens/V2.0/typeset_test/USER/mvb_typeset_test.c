@@ -1,64 +1,79 @@
 #include "mvb_typeset_test.h"
+#include "demon.h"
+#include "iwdg.h"
+
 struct port_group g_3368_3360_group = {
-	.3368;
-	.3360;
-	.16;
-	.16;
-	.64;
-	.false;
-	.false;
+	.port_req = 3368,
+	.port_rpl = 3360,
+	.port_cyc = 16,
+	.port_size = 16,
+	.port_timeout = 64,
+	.is_req_event = 0,
+	.is_need_reply = 0
 }; 
 
 struct port_group g_3390_3376_group = {
-	.3390;
-	.3376;
-	.32;
-	.8;
-	.128;
-	.false;
-	.false;
+	.port_req = 3390,
+	.port_rpl = 3376,
+	.port_cyc = 32,
+	.port_size = 8,
+	.port_timeout = 128,
+	.is_req_event = 0,
+	.is_need_reply = 0
 };
 
 struct port_group g_3391_3377_group = {
-	.3391;
-	.3377;
-	.16;
-	.32;
-	.64;
-	.false;
-	.false;
+	.port_req = 3391,
+	.port_rpl = 3377,
+	.port_cyc = 16,
+	.port_size = 32,
+	.port_timeout = 64,
+	.is_req_event = 0,
+	.is_need_reply = 0
 };
 
 struct port_group g_3392_3378_group = {
-	.3392;
-	.3379;
-	.64;
-	.4;
-	.256;
-	.false;
-	.false;
+	.port_req = 3392,
+	.port_rpl = 3378,
+	.port_cyc = 64,
+	.port_size = 4,
+	.port_timeout = 256,
+	.is_req_event = 0,
+	.is_need_reply = 0
 };
 
 struct port_group g_3393_3379_group = {
-	.3393;
-	.3379;
-	.128;
-	.32;
-	.512;
-	.false;
-	.false;
+	.port_req = 3393,
+	.port_rpl = 3379,
+	.port_cyc = 128,
+	.port_size = 32,
+	.port_timeout = 512,
+	.is_req_event = 0,
+	.is_need_reply = 0
 };
 
 struct port_group g_3394_3380_group = {
-	.3394;
-	.3380;
-	.512;
-	.32;
-	.2048;
-	.false;
-	.false;
+	.port_req = 3394,
+	.port_rpl = 3380,
+	.port_cyc = 512,
+	.port_size = 32,
+	.port_timeout = 2048,
+	.is_req_event = 0,
+	.is_need_reply = 0
 };
-
+struct g_3368_msg_t g_3368_msg;
+struct g_3360_msg_t g_3360_msg;
+struct g_3390_msg_t g_3390_msg;
+struct g_3376_msg_t g_3376_msg;
+struct g_3391_msg_t g_3391_msg;
+struct g_3377_msg_t g_3377_msg;
+struct g_3392_msg_t g_3392_msg;
+struct g_3378_msg_t g_3378_msg;
+struct g_3393_msg_t g_3393_msg;
+struct g_3379_msg_t g_3379_msg = DEFAULT_3379_MSG;
+struct g_3394_msg_t g_3394_msg;
+struct g_3380_msg_t g_3380_msg;
+ 
 struct port_group * g_3368_3360_port;
 struct port_group * g_3390_3376_port;
 struct port_group * g_3391_3377_port;
@@ -70,13 +85,13 @@ struct port_group * g_3394_3380_port;
  */
 #define TIMER_PERIOD 4 
 static uint32_t sys_tick = 0;
-extern bool check_port_event(struct port_group * port);
+/*extern bool check_port_event(struct port_group * port);
 extern bool reply_msg_to_zsg(struct port_group * port, 
 							void * msg,
 							int msg_size);
 extern int copy_req_msg(struct port_group * port, 
 						void * buffer,
-						int msg_size);
+						int msg_size);*/
 
 void event_check(struct port_group * port)
 {
@@ -106,14 +121,14 @@ static void test_host_failure(void)
 int process_msg_from_3368(struct g_3368_msg_t * msg)
 {
 	if (msg == NULL) return -1;
-	memcpy(msg, &g_3360_msg, sizeof(g_3360_msg));
+	memcpy((uint8_t *)msg, &g_3360_msg, sizeof(g_3360_msg));
 	/*reset err/warning*/
 	if (msg->INT16_2) {
 		g_3360_msg.UINT16_2 = 0;
 		g_3360_msg.UINT16_3 = 0;
 	}
 	/*Host failure*/
-	if(!msg->BOOLEAN1)
+	if(!msg->BOOLEAN_1)
 		test_host_failure();
 	else {
 		g_3360_msg.INT16_1++;
@@ -168,7 +183,7 @@ int process_msg_from_3393(struct g_3393_msg_t * msg)
 	if (msg == NULL) return -1;
 	memcpy(msg, &g_3379_msg, sizeof(g_3379_msg));
 	g_3379_msg.INT16_1++;
-	reply_msg_to_zsg(3393_3379_port, &g_3379_msg, sizeof(g_3379_msg));
+	reply_msg_to_zsg(g_3393_3379_port, &g_3379_msg, sizeof(g_3379_msg));
 	return 0;
 }
 
@@ -186,12 +201,12 @@ int process_msg_from_3394(struct g_3394_msg_t * msg)
 
 void init_typeset_service(void) 
 {
-	g_3368_3360_port = &3368_3360_group;
-	g_3390_3376_port = &3390_3376_group;
-	g_3391_3377_port = &3391_3377_group;
-	g_3392_3378_port = &3392_3378_group;
-	g_3393_3379_port = &3393_3379_group;
-	g_3394_3380_port = &3394_3380_group;
+	g_3368_3360_port = &g_3368_3360_group;
+	g_3390_3376_port = &g_3390_3376_group;
+	g_3391_3377_port = &g_3391_3377_group;
+	g_3392_3378_port = &g_3392_3378_group;
+	g_3393_3379_port = &g_3393_3379_group;
+	g_3394_3380_port = &g_3394_3380_group;
 }
 
 void mvb_typetest_service(void) 

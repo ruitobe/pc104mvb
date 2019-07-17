@@ -9,6 +9,7 @@
 #include "modbus.h"
 #include "delay.h"
 
+
 #define PC_MODE_B
 //#define PC_MODE_A
 
@@ -26,9 +27,42 @@ UNSIGNED16 temp_buff[17];
 UNSIGNED8 reg_num[32] = {0};
 
 TYPE_LP_PRT_CFG mvb_ts_cfg[32];
+bool mvb_data_update[32];
 TYPE_LP_TS_CFG mvb;
 
 UNSIGNED8 retWert, retWert100, retWert101, retWert208, retWert209;
+
+bool check_port_event(struct port_group * port) {
+	UNSIGNED8 pis = 0;
+  for (pis = 0; pis < mvb.prt_count; pis ++) {
+	  if (mvb_ts_cfg[pis].prt_addr == port->port_req) {
+		  if (mvb_data_update[pis] == true) {
+				mvb_data_update[pis] = false;
+			  return true;
+			} else {
+			  return false;
+			}
+		}
+	}
+}
+
+int copy_req_msg(struct port_group * port, void * buffer, int msg_size) {
+	UNSIGNED8 pis = 0;
+  for (pis = 0; pis < mvb.prt_count; pis ++) {
+	  if (mvb_ts_cfg[pis].prt_addr == port->port_req) {
+		  memcpy(buffer, &pc104_data_buff[pis*17], msg_size);
+		}
+	}
+}
+
+bool reply_msg_to_zsg(struct port_group * port, void * msg, int msg_size) {
+  UNSIGNED8 pis = 0;
+  for (pis = 0; pis < mvb.prt_count; pis ++) {
+	  if (mvb_ts_cfg[pis].prt_addr == port->port_req) {
+		  memcpy(&pc104_data_buff[pis*17], msg, msg_size);
+		}
+	}
+}
 
 void MVB_Service(void) {
 	UNSIGNED16 age;
@@ -82,9 +116,9 @@ void MVB_Service(void) {
 					freshness = 1;
 					// Update pc104_data_old
 					pc104_data_old[pis * 17 + i] = pc104_data_buff[pis * 17 + i];
+					mvb_data_update[pis] = true;
 				}
 			}
-			freshness = 0;
 			
 			if (freshness == 1) {
 			  pc104_data_buff[(pis + 1)* (reg_num[pis]) + pis * 17] = 0x0001;
@@ -116,11 +150,11 @@ void MVB_Parameter_Init(void) {
   mvb.ownership = 1;           /*            "             */
   mvb.ts_type = 1;             /*            "             */
   mvb.prt_addr_max = 4095;     /*            "             */
-  mvb.prt_indx_max = 31;       /*            "             */
+  mvb.prt_indx_max = 255;       /*            "             */
   
 	
 	// Port count is from config via Modbus
-	mvb.prt_count = 4;           /*            "             */
+	mvb.prt_count = 12;           /*            "             */
 	
 	
   mvb.tm_start = 0xE0000L;     /* from NSDB: MVBC-INITIALISIERUNG */
@@ -159,7 +193,81 @@ void MVB_Parameter_Init(void) {
   //mvb.p_prt_cfg = (UNSIGNED32) mvb_ts_cfg;
 #endif
   mvb.p_prt_cfg = (UNSIGNED32) mvb_ts_cfg;
+	memset(mvb_data_update, 0, sizeof(mvb_data_update));
 }
+
+void test_mvb_init(void) {	
+	UNSIGNED8 retWert;
+
+  mvb_ts_cfg[0].prt_addr = 3368;
+  mvb_ts_cfg[0].prt_indx = 4;
+  mvb_ts_cfg[0].size     = 16;
+  mvb_ts_cfg[0].type     = LP_CFG_SRCE;
+	
+	mvb_ts_cfg[1].prt_addr = 3390;
+  mvb_ts_cfg[1].prt_indx = 6;
+  mvb_ts_cfg[1].size     = 8;
+  mvb_ts_cfg[1].type     = LP_CFG_SRCE;
+	
+	mvb_ts_cfg[2].prt_addr = 3391;
+  mvb_ts_cfg[2].prt_indx = 8;
+  mvb_ts_cfg[2].size     = 32;
+  mvb_ts_cfg[2].type     = LP_CFG_SRCE;
+	
+	mvb_ts_cfg[3].prt_addr = 3392;
+  mvb_ts_cfg[3].prt_indx = 12;
+  mvb_ts_cfg[3].size     = 4;
+  mvb_ts_cfg[3].type     = LP_CFG_SRCE;
+	
+	mvb_ts_cfg[4].prt_addr = 3393;
+  mvb_ts_cfg[4].prt_indx = 16;
+  mvb_ts_cfg[4].size     = 32;
+  mvb_ts_cfg[4].type     = LP_CFG_SRCE;
+	
+	mvb_ts_cfg[5].prt_addr = 3394;
+  mvb_ts_cfg[5].prt_indx = 20;
+  mvb_ts_cfg[5].size     = 32;
+  mvb_ts_cfg[5].type     = LP_CFG_SRCE;
+	
+  mvb_ts_cfg[6].prt_addr = 3360;
+  mvb_ts_cfg[6].prt_indx = 24;
+  mvb_ts_cfg[6].size     = 16;
+  mvb_ts_cfg[6].type     = LP_CFG_SINK;
+	
+	mvb_ts_cfg[7].prt_addr = 3376;
+  mvb_ts_cfg[7].prt_indx = 26;
+  mvb_ts_cfg[7].size     = 8;
+  mvb_ts_cfg[7].type     = LP_CFG_SINK;
+	
+	mvb_ts_cfg[8].prt_addr = 3377;
+  mvb_ts_cfg[8].prt_indx = 28;
+  mvb_ts_cfg[8].size     = 32;
+  mvb_ts_cfg[8].type     = LP_CFG_SINK;
+	
+	mvb_ts_cfg[9].prt_addr = 3378;
+  mvb_ts_cfg[9].prt_indx = 32;
+  mvb_ts_cfg[9].size     = 4;
+  mvb_ts_cfg[9].type     = LP_CFG_SINK;
+	
+	mvb_ts_cfg[10].prt_addr = 3379;
+  mvb_ts_cfg[10].prt_indx = 36;
+  mvb_ts_cfg[10].size     = 32;
+  mvb_ts_cfg[10].type     = LP_CFG_SINK;
+	
+	mvb_ts_cfg[11].prt_addr = 3380;
+  mvb_ts_cfg[11].prt_indx = 40;
+  mvb_ts_cfg[11].size     = 32;
+  mvb_ts_cfg[11].type     = LP_CFG_SINK;
+	
+	retWert = MVBCInit(&mvb, 0);
+  if (retWert == MVB_NO_ERROR) {
+    retWert = MVBCStart(0);
+	  if (retWert == MVB_NO_ERROR) {
+			MVB_START_FLAG = 1;
+		}
+	}
+}
+
 
 
 int test_main(void)

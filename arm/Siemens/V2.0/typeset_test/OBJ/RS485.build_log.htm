@@ -3,51 +3,119 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: ¦ÌVision V5.14.0.0
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Rui Huang, Rui, LIC=4ZLPC-73YX5-JMZ98-3M9XN-NP018-L0ZFF
+IDE-Version: ¦ÌVision V5.18.0.0
+Copyright (C) 2016 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: xu 42128, shanghai, LIC=PE7BS-LLUGE-KNUAC-7CAPR-UQX6H-XT08E
  
 Tool Versions:
-Toolchain:       MDK-ARM Professional  Version: 5.14.0.0
-Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.05 update 1 (build 106)
-Assembler:       Armasm.exe V5.05 update 1 (build 106)
-Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
-Library Manager: ArmAr.exe V5.05 update 1 (build 106)
-Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
-CPU DLL:         SARMCM3.DLL V5.14.0.0
-Dialog DLL:      DCM.DLL V1.13.1.0
-Target DLL:      Segger\JL2CM3.dll V2.99.13.0
-Dialog DLL:      TCM.DLL V1.14.4.0
+Toolchain:       MDK-ARM Standard  Version: 5.18
+Toolchain Path:  D:\caj\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 1 (build 61)
+Assembler:       Armasm.exe V5.06 update 1 (build 61)
+Linker/Locator:  ArmLink.exe V5.06 update 1 (build 61)
+Library Manager: ArmAr.exe V5.06 update 1 (build 61)
+Hex Converter:   FromElf.exe V5.06 update 1 (build 61)
+CPU DLL:         SARMCM3.DLL V5.18
+Dialog DLL:      DCM.DLL V1.13.6.0
+Target DLL:      Segger\JL2CM3.dll V2.99.18.0
+Dialog DLL:      TCM.DLL V1.14.8.0
  
 <h2>Project:</h2>
-D:\Rui\104\arm\Siemens\V2.0\20190416\20190416\USER\RS485.uvprojx
-Project File Date:  04/13/2019
+C:\Users\42128\Desktop\typeset_test\USER\RS485.uvprojx
+Project File Date:  07/16/2019
 
 <h2>Output:</h2>
-Build target 'RS485'
+*** Using Compiler 'V5.06 update 1 (build 61)', folder: 'D:\caj\ARM\ARMCC\Bin'
+Rebuild target 'RS485'
+compiling rs485.c...
 compiling localbus.c...
-..\HARDWARE\LOCALBUS\localbus.c(180): warning:  #188-D: enumerated type mixed with another type
-                GPIO_WriteBit(Localbus_WR_GPIO_type[pis], Localbus_WR_GPIO_pins[pis], bit);
-..\HARDWARE\LOCALBUS\localbus.c(201): warning:  #177-D: variable "addr_base" was declared but never referenced
-        uint16_t addr_offset, addr_base;
-..\HARDWARE\LOCALBUS\localbus.c(249): warning:  #188-D: enumerated type mixed with another type
-                GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
-..\HARDWARE\LOCALBUS\localbus.c(256): warning:  #188-D: enumerated type mixed with another type
-                GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
-..\HARDWARE\LOCALBUS\localbus.c(310): warning:  #177-D: variable "temp" was declared but never referenced
-        uint32_t *temp;
+..\HARDWARE\LOCALBUS\localbus.c(178): warning:  #188-D: enumerated type mixed with another type
+  		GPIO_WriteBit(Localbus_WR_GPIO_type[pis], Localbus_WR_GPIO_pins[pis], bit);
+..\HARDWARE\LOCALBUS\localbus.c(199): warning:  #177-D: variable "addr_base" was declared but never referenced
+  	uint16_t addr_offset, addr_base;
+..\HARDWARE\LOCALBUS\localbus.c(247): warning:  #188-D: enumerated type mixed with another type
+  		GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
+..\HARDWARE\LOCALBUS\localbus.c(254): warning:  #188-D: enumerated type mixed with another type
+  		GPIO_WriteBit(Localbus_ADDR_GPIO_type[pis], Localbus_ADDR_GPIO_pins[pis], bit);
+..\HARDWARE\LOCALBUS\localbus.c(308): warning:  #177-D: variable "temp" was declared but never referenced
+  	uint32_t *temp;
 ..\HARDWARE\LOCALBUS\localbus.c: 5 warnings, 0 errors
+compiling stm32f4xx_it.c...
+compiling system_stm32f4xx.c...
+compiling led.c...
+compiling main.c...
+..\SYSTEM\iwdg\inc\iwdg.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(80): warning:  #111-D: statement is unreachable
+  	MVBCStop(0);		
+main.c(39): warning:  #177-D: variable "i" was declared but never referenced
+  	uint32_t i = 0;
+main.c(41): warning:  #177-D: variable "rs485buf" was declared but never referenced
+  	u8 rs485buf[5]; 
+main.c: 4 warnings, 0 errors
+compiling mvb_typeset_test.c...
+..\SYSTEM\iwdg\inc\iwdg.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+mvb_typeset_test.c: 1 warning, 0 errors
+assembling startup_stm32f40_41xxx.s...
+compiling sys.c...
+compiling iwdg.c...
+..\SYSTEM\iwdg\inc\iwdg.h(8): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\SYSTEM\iwdg\src\iwdg.c: 1 warning, 0 errors
+compiling delay.c...
+compiling modbus.c...
+..\HARDWARE\MODBUS_SLAVE\modbus.c(198): warning:  #177-D: variable "data" was declared but never referenced
+  	uint16_t data = 0;
+..\HARDWARE\MODBUS_SLAVE\modbus.c: 1 warning, 0 errors
+compiling usart.c...
+..\SYSTEM\usart\usart.c(27): warning:  #940-D: missing return statement at end of non-void function "_sys_exit"
+  } 
+..\SYSTEM\usart\usart.c: 1 warning, 0 errors
+compiling misc.c...
+compiling timer.c...
+compiling stm32f4xx_gpio.c...
+compiling stm32f4xx_fsmc.c...
+compiling stm32f4xx_rcc.c...
+compiling stm32f4xx_syscfg.c...
+compiling stm32f4xx_exti.c...
+compiling stm32f4xx_usart.c...
+compiling stm32f4xx_tim.c...
+compiling cl1_1.c...
+..\DEMON\src\cl1_1.c(1472): warning:  #223-D: function "printf" declared implicitly
+      printf("Reset MVBC, SCR 0x%x with 0x%x\r\n", (void*)(&p_ir->scr.w), local_scr.w);
+..\DEMON\src\cl1_1.c(1686): warning:  #223-D: function "printf" declared implicitly
+          printf("Hard init MVBC result = %d\r\n", result);
+..\DEMON\src\cl1_1.c: 2 warnings, 0 errors
+compiling stm32f4xx_iwdg.c...
+compiling HOST_DEP.C...
+compiling demo11.c...
+..\DEMON\src\demo11.c(47): warning:  #940-D: missing return statement at end of non-void function "check_port_event"
+  }
+..\DEMON\src\demo11.c(56): warning:  #940-D: missing return statement at end of non-void function "copy_req_msg"
+  }
+..\DEMON\src\demo11.c(65): warning:  #940-D: missing return statement at end of non-void function "reply_msg_to_zsg"
+  }
+..\DEMON\src\demo11.c(69): warning:  #177-D: variable "sink_port_count" was declared but never referenced
+  	UNSIGNED16 sink_port_count = 0;
+..\DEMON\src\demo11.c(365): warning:  #111-D: statement is unreachable
+    	  MVBCStop(0);
+..\DEMON\src\demo11.c(370): warning:  #1-D: last line of file ends without a newline
+  }
+..\DEMON\src\demo11.c(275): warning:  #177-D: variable "chi" was declared but never referenced
+    int ch, chi;
+..\DEMON\src\demo11.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=18164 RO-data=1108 RW-data=352 ZI-data=8960  
+Program Size: Code=18776 RO-data=1108 RW-data=348 ZI-data=8988  
 FromELF: creating hex file...
-"..\OBJ\RS485.axf" - 0 Error(s), 5 Warning(s).
+"..\OBJ\RS485.axf" - 0 Error(s), 22 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
-  D:\Rui\104\arm\Siemens\V2.0\20190416\20190416\USER\RTE
-  C:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0
+  C:\Users\42128\Desktop\typeset_test\USER\RTE
+  D:\caj\ARM\PACK\Keil\STM32F4xx_DFP\2.7.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
+Build Time Elapsed:  00:00:07
 </pre>
 </body>
 </html>

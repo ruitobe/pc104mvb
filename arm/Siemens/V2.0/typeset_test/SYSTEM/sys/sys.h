@@ -3,6 +3,8 @@
 #include "stm32f4xx.h" 
 #include "stm32f4xx_exti.h"
 #include "stm32f4xx_tim.h"
+#include <stdint.h>
+#include <stdlib.h>
 //////////////////////////////////////////////////////////////////////////////////	 
 //本程序只供学习使用，未经作者许可，不得用于其它任何用途
 //ALIENTEK STM32F407开发板

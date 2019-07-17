@@ -3,7 +3,7 @@
 ..\obj\rs485.o: ..\SYSTEM\sys\sys.h
 ..\obj\rs485.o: ..\USER\stm32f4xx.h
 ..\obj\rs485.o: ..\CORE\core_cm4.h
-..\obj\rs485.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\rs485.o: D:\caj\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\rs485.o: ..\CORE\core_cmInstr.h
 ..\obj\rs485.o: ..\CORE\core_cmFunc.h
 ..\obj\rs485.o: ..\CORE\core_cm4_simd.h
@@ -36,6 +36,6 @@
 ..\obj\rs485.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\rs485.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\rs485.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
+..\obj\rs485.o: D:\caj\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\rs485.o: ..\SYSTEM\delay\delay.h
 ..\obj\rs485.o: ..\HARDWARE\LOCALBUS\localbus.h
-..\obj\rs485.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

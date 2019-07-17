@@ -7,6 +7,7 @@
 #include "localbus.h"
 #include "modbus.h"
 #include "stm32f4xx_it.h"
+#include "iwdg.h"
 
 uint8_t RS485_BUF[64];
 uint8_t RS485_len;
@@ -50,19 +51,21 @@ int main(void)
 	MVBC_RESET = 1;
 	delay_ms(500);
 	//TIM3_Int_Init();
-  	TIM4_Int_Init();
-  	Localbus_MEM_R = 1;
+  TIM4_Int_Init();
+  Localbus_MEM_R = 1;
 	Localbus_ARM_CS = 1;
 	Localbus_MEM_W = 1;
 	Localbus_ARM_ADDR_WAIT = 1;
 	//PC104_ARM_REFRESH = 1;
 	MVBC_RESET = 0;
+	test_mvb_init();
   delay_ms(200);
+	IWDG_Init(4,500);
   while(1) {
-	  if (millis1() - recode_time1 > 5) {
+	  /*if (millis1() - recode_time1 > 5) {
 			recode_time1 = millis1();
 		  Modbus_Service();
-		}
+		}*/
 		
 		if (millis1() - recode_time2 > 50) {
 			recode_time2 = millis1();

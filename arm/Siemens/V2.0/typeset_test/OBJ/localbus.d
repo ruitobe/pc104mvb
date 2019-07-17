@@ -2,7 +2,7 @@
 ..\obj\localbus.o: ..\SYSTEM\sys\sys.h
 ..\obj\localbus.o: ..\USER\stm32f4xx.h
 ..\obj\localbus.o: ..\CORE\core_cm4.h
-..\obj\localbus.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\localbus.o: D:\caj\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\localbus.o: ..\CORE\core_cmInstr.h
 ..\obj\localbus.o: ..\CORE\core_cmFunc.h
 ..\obj\localbus.o: ..\CORE\core_cm4_simd.h
@@ -35,7 +35,7 @@
 ..\obj\localbus.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\localbus.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\localbus.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
+..\obj\localbus.o: D:\caj\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\localbus.o: ..\HARDWARE\LOCALBUS\localbus.h
-..\obj\localbus.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 ..\obj\localbus.o: ..\SYSTEM\delay\delay.h
 ..\obj\localbus.o: ..\HARDWARE\RS485\rs485.h

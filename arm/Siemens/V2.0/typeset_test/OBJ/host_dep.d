@@ -1,7 +1,7 @@
 ..\obj\host_dep.o: ..\DEMON\src\HOST_DEP.C
 ..\obj\host_dep.o: ..\DEMON\inc\config.h
 ..\obj\host_dep.o: ..\DEMON\inc\host_dep.h
-..\obj\host_dep.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+..\obj\host_dep.o: D:\caj\ARM\ARMCC\Bin\..\include\string.h
 ..\obj\host_dep.o: ..\DEMON\inc\dpr_dep.h
 ..\obj\host_dep.o: ..\DEMON\inc\cl1_ret.h
 ..\obj\host_dep.o: ..\DEMON\inc\cl1_1.h
@@ -9,7 +9,7 @@
 ..\obj\host_dep.o: ..\SYSTEM\sys\sys.h
 ..\obj\host_dep.o: ..\USER\stm32f4xx.h
 ..\obj\host_dep.o: ..\CORE\core_cm4.h
-..\obj\host_dep.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\host_dep.o: D:\caj\ARM\ARMCC\Bin\..\include\stdint.h
 ..\obj\host_dep.o: ..\CORE\core_cmInstr.h
 ..\obj\host_dep.o: ..\CORE\core_cmFunc.h
 ..\obj\host_dep.o: ..\CORE\core_cm4_simd.h
@@ -42,4 +42,4 @@
 ..\obj\host_dep.o: ..\FWLIB\inc\stm32f4xx_dac.h
 ..\obj\host_dep.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
 ..\obj\host_dep.o: ..\FWLIB\inc\stm32f4xx_fsmc.h
-..\obj\host_dep.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+..\obj\host_dep.o: D:\caj\ARM\ARMCC\Bin\..\include\stdlib.h
