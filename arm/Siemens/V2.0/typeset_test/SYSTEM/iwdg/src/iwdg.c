@@ -16,11 +16,10 @@ void IWDG_Init(u8 prer,u16 rlr)
 	IWDG_SetReload(rlr);   //设置IWDG装载值
 
 	IWDG_ReloadCounter(); //reload
-	
-	IWDG_Enable();       //使能看门狗
 }
 
 void wdt_fired(void)
 {
+	IWDG_Enable();       //使能看门狗
 	IWDG_ReloadCounter();//reload
 }
