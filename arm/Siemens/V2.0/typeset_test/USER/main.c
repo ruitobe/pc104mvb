@@ -59,17 +59,20 @@ int main(void)
 	//PC104_ARM_REFRESH = 1;
 	MVBC_RESET = 0;
 	test_mvb_init();
-  delay_ms(200);
+    delay_ms(200);
 	IWDG_Init(4,500);
+	init_typeset_service();
   while(1) {
 	  /*if (millis1() - recode_time1 > 5) {
 			recode_time1 = millis1();
 		  Modbus_Service();
 		}*/
 		
-		if (millis1() - recode_time2 > 50) {
+		if (millis1() - recode_time2 > 2) {
 			recode_time2 = millis1();
-		  MVB_Service();
+		    MVB_Service();
+			test_event_check();
+			mvb_typetest_service();
 		}
 		
 		if (millis1() - recode_time3 > 100) {

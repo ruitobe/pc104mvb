@@ -62,17 +62,17 @@ struct port_group g_3394_3380_group = {
 	.is_need_reply = 0
 };
 struct g_3368_msg_t g_3368_msg;
-struct g_3360_msg_t g_3360_msg;
+struct g_3360_msg_t g_3360_msg = DEFAULT_3360_MSG;
 struct g_3390_msg_t g_3390_msg;
-struct g_3376_msg_t g_3376_msg;
+struct g_3376_msg_t g_3376_msg = DEFAULT_3376_MSG;
 struct g_3391_msg_t g_3391_msg;
-struct g_3377_msg_t g_3377_msg;
+struct g_3377_msg_t g_3377_msg = DEFAULT_3377_MSG;
 struct g_3392_msg_t g_3392_msg;
-struct g_3378_msg_t g_3378_msg;
+struct g_3378_msg_t g_3378_msg = DEFAULT_3378_MSG;
 struct g_3393_msg_t g_3393_msg;
 struct g_3379_msg_t g_3379_msg = DEFAULT_3379_MSG;
 struct g_3394_msg_t g_3394_msg;
-struct g_3380_msg_t g_3380_msg;
+struct g_3380_msg_t g_3380_msg = DEFAULT_3380_MSG;
  
 struct port_group * g_3368_3360_port;
 struct port_group * g_3390_3376_port;
@@ -101,7 +101,7 @@ void event_check(struct port_group * port)
 }
 
 
-void timer_isr(void) 
+void test_event_check(void) 
 {
 	sys_tick += TIMER_PERIOD;
 	event_check(g_3368_3360_port); 
