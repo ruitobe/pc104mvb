@@ -2,6 +2,8 @@
 #include "demon.h"
 #include "iwdg.h"
 
+bool is_sys_act = true;
+
 struct port_group g_3368_3360_group = {
 	.port_req = 3368,
 	.port_rpl = 3360,
@@ -128,8 +130,10 @@ int process_msg_from_3368(struct g_3368_msg_t * msg)
 		g_3360_msg.UINT16_3 = 0;
 	}
 	/*Host failure*/
-	if(!msg->BOOLEAN_1)
+	if(!msg->BOOLEAN_1) {
+		is_sys_act = false;
 		test_host_failure();
+	}	
 	else {
 		g_3360_msg.INT16_1++;
 		g_3360_msg.INT16_2++;
@@ -211,41 +215,41 @@ void init_typeset_service(void)
 
 void mvb_typetest_service(void) 
 {
-	if(g_3368_3360_port->is_req_event) {
+	if(g_3368_3360_port->is_req_event && is_sys_act) {
 		copy_req_msg(g_3368_3360_port,
 					&g_3368_msg,
 					sizeof(g_3368_msg));
 		process_msg_from_3368(&g_3368_msg);
 	}
 	
-	if(g_3390_3376_port->is_req_event) {
+	if(g_3390_3376_port->is_req_event && is_sys_act) {
 		copy_req_msg(g_3390_3376_port,
 					&g_3390_msg,
 					sizeof(g_3390_msg));
 		process_msg_from_3390(&g_3390_msg);
 	}
 	
-	if(g_3391_3377_port->is_req_event) {
+	if(g_3391_3377_port->is_req_event && is_sys_act) {
 		copy_req_msg(g_3391_3377_port,
 					&g_3391_msg,
 					sizeof(g_3391_msg));
 		process_msg_from_3391(&g_3391_msg);
 	}
 	
-	if(g_3392_3378_port->is_req_event) {
+	if(g_3392_3378_port->is_req_event && is_sys_act) {
 		copy_req_msg(g_3392_3378_port,
 					&g_3392_msg,
 					sizeof(g_3392_msg));
 		process_msg_from_3392(&g_3392_msg);
 	}
 	
-	if(g_3393_3379_port->is_req_event) {
+	if(g_3393_3379_port->is_req_event && is_sys_act) {
 		copy_req_msg(g_3393_3379_port,
 					&g_3393_msg,
 					sizeof(g_3393_msg));
 		process_msg_from_3393(&g_3393_msg);
 	}
-	if(g_3394_3380_port->is_req_event) {
+	if(g_3394_3380_port->is_req_event && is_sys_act) {
 		copy_req_msg(g_3394_3380_port,
 					&g_3394_msg,
 					sizeof(g_3394_msg));

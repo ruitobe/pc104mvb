@@ -32,7 +32,7 @@ uint32_t recode_time2 = 0;
 uint32_t recode_time3 = 0;
 uint8_t test_data111;
 
-
+extern bool is_sys_act;
 
 int main(void)
 { 
@@ -63,21 +63,10 @@ int main(void)
 	IWDG_Init(4,500);
 	init_typeset_service();
   while(1) {
-	  /*if (millis1() - recode_time1 > 5) {
-			recode_time1 = millis1();
-		  Modbus_Service();
-		}*/
-		
-		if (millis1() - recode_time2 > 2) {
-			recode_time2 = millis1();
+		if (millis1() % 4 == 0) {
 		    MVB_Service();
 			test_event_check();
 			mvb_typetest_service();
-		}
-		
-		if (millis1() - recode_time3 > 100) {
-		  recode_time3 = millis1();
-			Heartbeat_Service();
 		}
 	}
 	MVBCStop(0);		
