@@ -23,13 +23,20 @@
 #define ZSG_REQ_PORT_3393	 (3393)
 #define ZSG_REQ_PORT_3394	 (3394)
 #define ZSG_REQ_PORT_3368	 (3368)
-
-#define OBJ_REP_PORT_3360    (3360) 
+ 
 #define OBJ_REP_PORT_3376    (3376) 
 #define OBJ_REP_PORT_3377    (3377) 
 #define OBJ_REP_PORT_3378    (3378) 
 #define OBJ_REP_PORT_3379    (3379) 
 #define OBJ_REP_PORT_3380    (3380) 
+#define OBJ_REP_PORT_3360    (3360)
+
+#define CYC_TIME_3360_3368	(32)
+#define CYC_TIME_3376_3390	(64)
+#define CYC_TIME_3377_3391	(128)
+#define CYC_TIME_3378_3392	(256)
+#define CYC_TIME_3379_3393	(512)
+#define CYC_TIME_3380_3394	(1024)
 
 struct port_group {
 	uint16_t port_req;
@@ -38,7 +45,7 @@ struct port_group {
 	uint16_t port_size; 
 	uint16_t port_timeout; /*supervision time, unit: ms*/
 	bool is_req_event;
-	bool is_need_reply;
+	bool to_event;
 };
 /*3368 <-> 3360*/
 #define PORTCYC_3368_3360 (16)
