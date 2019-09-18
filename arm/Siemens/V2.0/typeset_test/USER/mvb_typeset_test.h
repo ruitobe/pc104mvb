@@ -2,6 +2,7 @@
 #define MVB_TYPESET_TEST_H
 
 #include "sys.h"
+#include "timer.h"
 
 #define ZSG_DEV_ADDR		(230)
 #define OBJ_DEV_ADDR		(3360)
@@ -23,20 +24,13 @@
 #define ZSG_REQ_PORT_3393	 (3393)
 #define ZSG_REQ_PORT_3394	 (3394)
 #define ZSG_REQ_PORT_3368	 (3368)
- 
-#define OBJ_REP_PORT_3376    (3376) 
-#define OBJ_REP_PORT_3377    (3377) 
-#define OBJ_REP_PORT_3378    (3378) 
-#define OBJ_REP_PORT_3379    (3379) 
-#define OBJ_REP_PORT_3380    (3380) 
-#define OBJ_REP_PORT_3360    (3360)
 
-#define CYC_TIME_3360_3368	(32)
-#define CYC_TIME_3376_3390	(64)
-#define CYC_TIME_3377_3391	(128)
-#define CYC_TIME_3378_3392	(256)
-#define CYC_TIME_3379_3393	(512)
-#define CYC_TIME_3380_3394	(1024)
+#define OBJ_REP_PORT_3360  (3360) 
+#define OBJ_REP_PORT_3376  (3376) 
+#define OBJ_REP_PORT_3377  (3377) 
+#define OBJ_REP_PORT_3378  (3378) 
+#define OBJ_REP_PORT_3379  (3379) 
+#define OBJ_REP_PORT_3380  (3380) 
 
 struct port_group {
 	uint16_t port_req;
@@ -45,10 +39,10 @@ struct port_group {
 	uint16_t port_size; 
 	uint16_t port_timeout; /*supervision time, unit: ms*/
 	bool is_req_event;
-	bool to_event;
+	bool is_need_reply;
 };
 /*3368 <-> 3360*/
-#define PORTCYC_3368_3360 (16)
+#define PORTCYC_3368_3360 (32)
 struct g_3368_msg_t {
 	int16_t INT16_1;
 	int16_t INT16_2;
@@ -65,15 +59,18 @@ struct g_3368_msg_t {
 	uint8_t	 ENUM4:4;
 	uint8_t	 BITSET8;
 };
-
+// After power up, 
+// INT16_2 must be set to 10 (0x0a)
+// When the first packet sent, 
+// UINT16_2 must be 0 if no error
 #define DEFAULT_3360_MSG \
 { 0X7f7f,\
 	0,\
 	0xA1A1,\
 	0xA,\
+	0x1,\
+	0x1,\
 	0x3,\
-	0x1,\
-	0x1,\
 	0xA1,\
 	0xFFFF,\
 	0xFFFF,\
@@ -81,7 +78,7 @@ struct g_3368_msg_t {
 	0xf,\
 	0xB,\
 	0X7f,\
-\}
+}
 struct g_3360_msg_t {
 	int16_t INT16_1;
 	int16_t INT16_2;
@@ -122,7 +119,7 @@ struct g_3390_msg_t {
 	0x21,\
 	0xB,\
 	0xA,\
-\}
+}
 
 struct g_3376_msg_t {
 	uint16_t INT16_1;
@@ -136,7 +133,7 @@ struct g_3376_msg_t {
 };
 
 /*3391 <---> 3377*/
-#define PORTCYC_3391_3377	(128)
+#define PORTCYC_3391_3377	(32)
 
 struct g_3391_msg_t {
 	int16_t INT16_1;
@@ -160,10 +157,10 @@ struct g_3391_msg_t {
 #define DEFAULT_3377_MSG \
 {	0x7f7f,\
 	0x21,\
-	0xA,\
+	0x1,\
+	0x1,\
 	0x3,\
-	0x1,\
-	0x1,\
+	0xA,\
 	0xA1A1A1,\
 	0xA1A1,\
 	"ABCDEFGHIJ",\
@@ -174,7 +171,7 @@ struct g_3391_msg_t {
 	0XC,\
 	0xB,\
 	0xA1,\
-\}
+}
 
 struct g_3377_msg_t {
 	int16_t INT16_1;
@@ -197,7 +194,7 @@ struct g_3377_msg_t {
 
 
 /*3392 <---> 3378*/
-#define PORTCYC_3392_3378	(256)
+#define PORTCYC_3392_3378	(128)
 
 struct g_3392_msg_t {
 	int16_t INT16_1;
@@ -207,7 +204,8 @@ struct g_3392_msg_t {
 };
 
 #define DEFAULT_3378_MSG \
-{	0x3f,\
+{	0x7f7f,\
+	0x3f,\
 	0x3,\
 	0xa1,\
 } 
@@ -220,7 +218,7 @@ struct g_3378_msg_t {
 };
 
 /*3393 <---> 3379*/
-#define PORTCYC_3393_3379	(512)
+#define PORTCYC_3393_3379	(256)
 
 struct g_3393_msg_t {
 	int16_t INT16_1;
@@ -270,7 +268,8 @@ struct g_3394_msg_t {
 };
 
 #define DEFAULT_3380_MSG \
-{	0x55,\
+{	0x7f7f,\
+	0x55,\
 	0x21,\
 	0xA1A1A1A1,\
 	0xA2A2A2A2,\

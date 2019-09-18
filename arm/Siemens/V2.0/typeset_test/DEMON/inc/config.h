@@ -127,13 +127,17 @@ SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
    TM_STSR_INTERV_64MS
    TM_STSR_INTERV_128MS
    TM_STSR_INTERV_256MS */
-#define TM_STSR_INTERV          TM_STSR_INTERV_OFF
+//#define TM_STSR_INTERV          TM_STSR_INTERV_OFF
+// Rui: for Siemens typetest only
+#define TM_STSR_INTERV          TM_STSR_INTERV_32MS
 
 /* Number of docks to be supervised.
    User must assure that this value does not exceed the number of
    available docks in the data area. Bus traffic overflow can occur
    by wrong combination of intervall and number of docks ! */
-#define TM_STSR_DOCKS           0
+//#define TM_STSR_DOCKS           0
+// Rui: for Siemens typetest only
+#define TM_STSR_DOCKS           12
 
 /*---------- MVBC in Intel or Motorola mode -------------------------*/
 /* In this application the MVBC will always work in Intel Mode.

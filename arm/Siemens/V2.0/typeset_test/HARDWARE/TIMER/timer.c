@@ -46,7 +46,8 @@ void TIM4_Int_Init(void)
 	
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4,ENABLE);  ///使能TIM3时钟
 	
-  TIM_TimeBaseInitStructure.TIM_Period = 12399; 	//自动重装载值
+  //TIM_TimeBaseInitStructure.TIM_Period = 12399; 	//自动重装载值
+	TIM_TimeBaseInitStructure.TIM_Period = 1239; 	//自动重装载值
 	TIM_TimeBaseInitStructure.TIM_Prescaler=99;  //定时器分频
 	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式
 	TIM_TimeBaseInitStructure.TIM_ClockDivision=TIM_CKD_DIV1; 

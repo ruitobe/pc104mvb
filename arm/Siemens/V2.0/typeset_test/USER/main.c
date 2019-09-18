@@ -59,15 +59,16 @@ int main(void)
 	//PC104_ARM_REFRESH = 1;
 	MVBC_RESET = 0;
 	test_mvb_init();
-    delay_ms(200);
+  delay_ms(200);
 	IWDG_Init(4,500);
 	init_typeset_service();
   while(1) {
-		if (millis1() % 4 == 0) {
-		    MVB_Service();
+		//if (millis1() % 4 == 0) {
+		  delay_us(200);
+		  MVB_Service();
 			test_event_check();
 			mvb_typetest_service();
-		}
+		//}
 	}
 	MVBCStop(0);		
 	return 0;
